@@ -4,16 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/mainActivityBackground"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Calculadora de velocidades"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/etDistance"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etDistance"
+        android:layout_width="323dp"
+        android:layout_height="57dp"
+        android:hint="Distancia en kilómetros."
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@id/etTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etTime"
+        android:layout_width="323dp"
+        android:layout_height="57dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDistance"
+        app:layout_constraintBottom_toTopOf="@id/btnCalculate"
+        android:hint="Tiempo en minutos"
+        android:inputType="numberDecimal"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etTime"
+        app:layout_constraintBottom_toTopOf="@id/tvResultMetersSeconds"
+        android:text="Calcular"/>
+
+    <TextView
+        android:id="@+id/tvResultMetersSeconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCalculate"
+        app:layout_constraintBottom_toTopOf="@id/tvResultKilometersHour"
+        tools:text="Aquí es donde se mostratá el resultado"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        />
+
+<TextView
+        android:id="@+id/tvResultKilometersHour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvResultMetersSeconds"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Aquí es donde se mostratá el resultado"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
